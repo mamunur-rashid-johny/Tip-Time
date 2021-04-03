@@ -3,6 +3,7 @@ package com.example.tipapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tipapp.databinding.ActivityMainBinding
+
 import java.text.NumberFormat
 import kotlin.math.ceil
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateTip() {
-        val cost = (binding.costOfService.text.toString()).toDoubleOrNull()
+        val cost = (binding.costOfServiceEdiText.text.toString()).toDoubleOrNull()
         if (cost != null){
             val selectedId = binding.tipOptions.checkedRadioButtonId
             val tipPercentage = when(selectedId){
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
             binding.tipResult.text = getString(R.string.tip_amount,formattedTip)
         }else{
-            binding.tipResult.text = "Please a Amount"
+            binding.tipResult.text = "Please Enter a Amount"
         }
 
     }
